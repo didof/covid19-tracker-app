@@ -1,3 +1,7 @@
+<svelte:head>
+  <title>Covid-19 Tracker</title>
+</svelte:head>
+
 <script>
   import CovidStat from '../components/CovidStat.svelte'
   import CovidChart from '../components/CovidChart.svelte'
