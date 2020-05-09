@@ -2,20 +2,32 @@ import format from './format'
 import moment from 'moment'
 
 function usStats(data) {
-	const [raw] = data
-
 	return {
-		cases: format.number(raw.positive),
-		deaths: format.number(raw.death),
-		recovered: format.number(raw.recovered),
-		ventilator: format.number(raw.onVentilatorCurrently),
-		hospitalized: format.number(raw.hospitalized),
-		icu: format.number(raw.inIcuCurrently),
-		tested: format.number(raw.totalTestResults),
-		updated: moment(raw.lastModified).format('LLLL'),
+		cases: format.number(data.positive),
+		deaths: format.number(data.death),
+		recovered: format.number(data.recovered),
+		ventilator: format.number(data.onVentilatorCurrently),
+		hospitalized: format.number(data.hospitalized),
+		icu: format.number(data.inIcuCurrently),
+		tested: format.number(data.totalTestResults),
+		updated: moment(data.lastModified).format('LLLL'),
+	}
+}
+
+function stateStats(data) {
+	return {
+		cases: format.number(data.positive),
+		deaths: format.number(data.death),
+		recovered: format.number(data.recovered),
+		ventilator: format.number(data.onVentilatorCurrently),
+		hospitalized: format.number(data.hospitalized),
+		icu: format.number(data.inIcuCurrently),
+		tested: format.number(data.totalTestResults),
+		updated: moment(data.lastModified).format('LLLL'),
 	}
 }
 
 export default {
 	usStats,
+	stateStats
 }
