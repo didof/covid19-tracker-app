@@ -33,8 +33,6 @@
     </div>
   </div>
 </section>
-<CovidStat />
+<CovidStat {...usStats}/>
 <CovidChart />
 <TableContainer />
-
-minuto 2:00:47
