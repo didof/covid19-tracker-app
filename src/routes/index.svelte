@@ -2,10 +2,27 @@
   <title>Covid-19 Tracker</title>
 </svelte:head>
 
+<script context="module">
+  import request from '../data/request'
+
+  export async function preload() {
+    try {
+      const usStats = await request.usStats()
+
+      return { usStats }
+    } catch(err) {
+      console.log(err)
+    }
+  }
+</script>
+
 <script>
   import CovidStat from '../components/CovidStat.svelte'
   import CovidChart from '../components/CovidChart.svelte'
   import TableContainer from '../components/TableContainer.svelte'
+
+  export let usStats
+  console.log(usStats, "usStats")
 </script>
 
 <section class="hero is-success is-bold is-small">
@@ -19,3 +36,5 @@
 <CovidStat />
 <CovidChart />
 <TableContainer />
+
+minuto 2:00:47
